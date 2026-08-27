@@ -50,7 +50,7 @@
       position: relative;
     }
 
-    /* Barber pole stripe header */
+    /* Barbershop Pole Stripe Accent */
     .stripe-header {
       height: 10px;
       background: repeating-linear-gradient(
@@ -100,7 +100,7 @@
       border-radius: 3px;
     }
 
-    /* Cassette Box */
+    /* Cassette Tape Box */
     .cassette {
       background: var(--tape-dark);
       border: 3px solid var(--paper-border);
@@ -135,7 +135,7 @@
       color: var(--text-muted);
     }
 
-    /* Cassette Spools */
+    /* Cassette Spool Wheels */
     .spools {
       display: flex;
       justify-content: center;
@@ -224,7 +224,7 @@
       cursor: pointer;
     }
 
-    /* Video Frame Preview */
+    /* Player Preview Area */
     .video-preview {
       border: 2px solid var(--paper-border);
       border-radius: 6px;
@@ -232,7 +232,7 @@
       background: #000;
       margin-bottom: 14px;
       position: relative;
-      padding-top: 56.25%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
     }
 
     .video-preview iframe, .video-preview #youtube-player {
@@ -261,13 +261,13 @@
     <div class="header-block">
       <h1 class="hindi-title">डीलक्स सैलून</h1>
       <div class="eng-title">90s Bollywood Classics Radio</div>
-      <div class="status-badge" id="playerStatus">LOADING 90s CASSETTE...</div>
+      <div class="status-badge" id="playerStatus">LOADING PUBLIC CASSETTE...</div>
     </div>
 
     <div class="cassette">
       <div class="cassette-label">
         <div class="track-title" id="trackName">Tape Loading...</div>
-        <div class="track-meta" id="trackIndex">90s Bollywood Evergreen Classics</div>
+        <div class="track-meta" id="trackIndex">90s Bollywood Evergreen Playlist</div>
       </div>
       <div class="spools">
         <div class="spool-window" id="spoolL"></div>
@@ -299,7 +299,7 @@
     </div>
 
     <div class="footer">
-      Pure 90s Nostalgia • Kumar Sanu • Alka Yagnik • Udit Narayan • Sonu Nigam
+      Pure 90s Nostalgia • Handcrafted Barbershop Experience
     </div>
   </div>
 
@@ -320,7 +320,7 @@
     const volSlider = document.getElementById("volSlider");
     const volLabel = document.getElementById("volLabel");
 
-    // Load YouTube IFrame API
+    // Load YouTube API
     const tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
     const firstScriptTag = document.getElementsByTagName('script')[0];
@@ -339,7 +339,7 @@
     function onPlayerReady(event) {
       isReady = true;
       player.setVolume(85);
-      playerStatus.innerText = "READY TO PLAY • 90s CLASSICS";
+      playerStatus.innerText = "READY TO PLAY • LIVE";
       updateTrackInfo();
     }
 
@@ -349,7 +349,7 @@
       if (data && data.title) {
         trackName.innerText = data.title;
         const curIndex = player.getPlaylistIndex();
-        trackIndex.innerText = `Track #${(curIndex !== undefined && curIndex >= 0 ? curIndex + 1 : 1)} • 90s Bollywood Classics`;
+        trackIndex.innerText = `Track #${(curIndex !== undefined && curIndex >= 0 ? curIndex + 1 : 1)} • 90s Classics`;
       }
     }
 
@@ -374,7 +374,7 @@
     }
 
     function onPlayerError(e) {
-      playerStatus.innerText = "SKIPPING UNAVAILABLE SONG...";
+      playerStatus.innerText = "SKIPPING TO NEXT TRACK...";
       if (player.nextVideo) player.nextVideo();
     }
 
