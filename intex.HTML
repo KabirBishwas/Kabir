@@ -1,0 +1,423 @@
+﻿<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>डीलक्स सैलून | Deluxe Saloon Radio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Yatra+One&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #e8e2ce;
+      --card-bg: #f5f1e3;
+      --paper-border: #3b2f2f;
+      --accent-red: #b93826;
+      --text-main: #2b2118;
+      --text-muted: #6e6259;
+      --tape-dark: #1f1d1d;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Courier Prime', monospace;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background-image: radial-gradient(rgba(0,0,0,0.06) 1px, transparent 0);
+      background-size: 16px 16px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 580px;
+      background: var(--card-bg);
+      border: 3px solid var(--paper-border);
+      box-shadow: 8px 8px 0px rgba(0,0,0,0.85);
+      border-radius: 8px;
+      padding: 24px;
+      position: relative;
+    }
+
+    /* Vintage barbershop stripe header */
+    .stripe-header {
+      height: 10px;
+      background: repeating-linear-gradient(
+        -45deg,
+        var(--accent-red),
+        var(--accent-red) 12px,
+        #f5f1e3 12px,
+        #f5f1e3 24px,
+        #244b7a 24px,
+        #244b7a 36px
+      );
+      margin-bottom: 18px;
+      border: 1.5px solid var(--paper-border);
+      border-radius: 3px;
+    }
+
+    .header-block {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .hindi-title {
+      font-family: 'Yatra One', cursive;
+      font-size: 2.3rem;
+      color: var(--accent-red);
+      line-height: 1.1;
+      letter-spacing: 1px;
+    }
+
+    .eng-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--text-main);
+      margin-top: 4px;
+    }
+
+    .status-badge {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      background: #e0d8c0;
+      border: 1px solid var(--paper-border);
+      border-radius: 3px;
+    }
+
+    /* Cassette Box */
+    .cassette {
+      background: var(--tape-dark);
+      border: 3px solid var(--paper-border);
+      border-radius: 10px;
+      padding: 16px;
+      color: #fff;
+      margin-bottom: 18px;
+      box-shadow: inset 0 0 12px rgba(0,0,0,0.7);
+    }
+
+    .cassette-label {
+      background: #fbf8eb;
+      color: #111;
+      padding: 12px 14px;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      border: 1.5px dashed #777;
+    }
+
+    .track-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .track-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Cassette Spools */
+    .spools {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 55px;
+      margin: 14px 0 4px;
+    }
+
+    .spool-window {
+      width: 44px;
+      height: 44px;
+      border: 3px dashed #fff;
+      border-radius: 50%;
+      background: #2a2828;
+      position: relative;
+    }
+
+    .spool-window::after {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: #fff;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .spinning {
+      animation: spin 3s linear infinite;
+    }
+
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Controls */
+    .controls {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      background: var(--card-bg);
+      border: 2px solid var(--paper-border);
+      color: var(--text-main);
+      font-family: inherit;
+      font-weight: 700;
+      padding: 8px 14px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      box-shadow: 3px 3px 0px var(--paper-border);
+      transition: all 0.1s ease;
+      border-radius: 4px;
+    }
+
+    .btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0px var(--paper-border);
+    }
+
+    .btn-main {
+      background: var(--accent-red);
+      color: #fff;
+      padding: 8px 20px;
+    }
+
+    /* Volume */
+    .vol-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .vol-slider {
+      flex: 1;
+      margin: 0 10px;
+      accent-color: var(--accent-red);
+      cursor: pointer;
+    }
+
+    /* Video Frame Preview */
+    .video-preview {
+      border: 2px solid var(--paper-border);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #000;
+      margin-bottom: 14px;
+      position: relative;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    }
+
+    .video-preview iframe, .video-preview #youtube-player {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .footer {
+      font-size: 0.75rem;
+      text-align: center;
+      color: var(--text-muted);
+      border-top: 1.5px dashed var(--paper-border);
+      padding-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="stripe-header"></div>
+
+    <div class="header-block">
+      <h1 class="hindi-title">डीलक्स सैलून</h1>
+      <div class="eng-title">Deluxe Saloon Radio</div>
+      <div class="status-badge" id="playerStatus">CONNECTING PLAYLIST...</div>
+    </div>
+
+    <div class="cassette">
+      <div class="cassette-label">
+        <div class="track-title" id="trackName">Tape Loading...</div>
+        <div class="track-meta" id="trackIndex">Playlist Tape • Loading queue...</div>
+      </div>
+      <div class="spools">
+        <div class="spool-window" id="spoolL"></div>
+        <div class="spool-window" id="spoolR"></div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="btn" id="prevBtn">⏮ Prev Track</button>
+      <button class="btn" id="rwBtn">« -15s</button>
+      <button class="btn btn-main" id="playBtn">▶ Play</button>
+      <button class="btn" id="ffBtn">+15s »</button>
+      <button class="btn" id="nextBtn">Next Track ⏭</button>
+    </div>
+
+    <div class="vol-container">
+      <span>VOL</span>
+      <input type="range" class="vol-slider" id="volSlider" min="0" max="100" value="85">
+      <span id="volLabel">85%</span>
+    </div>
+
+    <div class="video-preview">
+      <div id="youtube-player"></div>
+    </div>
+
+    <div class="footer">
+      Pure 90s & 2000s Nostalgia • Handcrafted Barbershop Experience
+    </div>
+  </div>
+
+  <script>
+    // Valid 34-character playlist ID
+    const PLAYLIST_ID = "PLgktmxXDBr-SyO5ikFzavFzD-0-L-aEUm";
+    let player;
+    let isReady = false;
+
+    const playBtn = document.getElementById("playBtn");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const rwBtn = document.getElementById("rwBtn");
+    const ffBtn = document.getElementById("ffBtn");
+    const spoolL = document.getElementById("spoolL");
+    const spoolR = document.getElementById("spoolR");
+    const playerStatus = document.getElementById("playerStatus");
+    const trackName = document.getElementById("trackName");
+    const trackIndex = document.getElementById("trackIndex");
+    const volSlider = document.getElementById("volSlider");
+    const volLabel = document.getElementById("volLabel");
+
+    // Load YouTube IFrame Player API
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('youtube-player', {
+        playerVars: {
+          'listType': 'playlist',
+          'list': PLAYLIST_ID,
+          'autoplay': 0,
+          'controls': 1,
+          'rel': 0,
+          'playsinline': 1,
+          'enablejsapi': 1
+        },
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+
+    function onPlayerReady(event) {
+      isReady = true;
+      player.setVolume(85);
+      playerStatus.innerText = "READY TO PLAY • LIVE";
+      updateTrackInfo();
+    }
+
+    function updateTrackInfo() {
+      if (!isReady || !player.getVideoData) return;
+      const data = player.getVideoData();
+      if (data && data.title) {
+        trackName.innerText = data.title;
+        const curIndex = player.getPlaylistIndex();
+        trackIndex.innerText = `Track #${(curIndex !== undefined && curIndex >= 0 ? curIndex + 1 : 1)} • Saloon Hits Collection`;
+      }
+    }
+
+    function onPlayerStateChange(event) {
+      updateTrackInfo();
+
+      if (event.data === YT.PlayerState.PLAYING) {
+        playBtn.innerText = "❚❚ Pause";
+        spoolL.classList.add("spinning");
+        spoolR.classList.add("spinning");
+        playerStatus.innerText = "NOW PLAYING ♫";
+      } else if (event.data === YT.PlayerState.PAUSED) {
+        playBtn.innerText = "▶ Play";
+        spoolL.classList.remove("spinning");
+        spoolR.classList.remove("spinning");
+        playerStatus.innerText = "PAUSED";
+      } else if (event.data === YT.PlayerState.BUFFERING) {
+        playerStatus.innerText = "TUNING IN...";
+      } else if (event.data === YT.PlayerState.ENDED) {
+        playerStatus.innerText = "NEXT TRACK...";
+      }
+    }
+
+    // Controls
+    playBtn.addEventListener('click', () => {
+      if (!isReady) return;
+      const state = player.getPlayerState();
+      if (state === YT.PlayerState.PLAYING) {
+        player.pauseVideo();
+      } else {
+        player.playVideo();
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (!isReady) return;
+      player.nextVideo();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (!isReady) return;
+      player.previousVideo();
+    });
+
+    rwBtn.addEventListener('click', () => {
+      if (!isReady) return;
+      const cur = player.getCurrentTime();
+      player.seekTo(Math.max(cur - 15, 0), true);
+    });
+
+    ffBtn.addEventListener('click', () => {
+      if (!isReady) return;
+      const cur = player.getCurrentTime();
+      player.seekTo(cur + 15, true);
+    });
+
+    volSlider.addEventListener('input', (e) => {
+      const val = e.target.value;
+      volLabel.innerText = `${val}%`;
+      if (isReady) {
+        player.setVolume(val);
+      }
+    });
+  </script>
+</body>
+</html>
