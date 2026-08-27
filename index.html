@@ -2,11 +2,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>डीलक्स सैलून | 90s Bollywood Classics Radio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Yatra+One&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Yatra+One&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
     :root {
@@ -17,6 +22,7 @@
       --text-main: #2b2118;
       --text-muted: #6e6259;
       --tape-dark: #1f1d1d;
+      --blue: #244b7a;
     }
 
     * {
@@ -28,44 +34,71 @@
     body {
       background-color: var(--bg-color);
       color: var(--text-main);
-      font-family: 'Courier Prime', monospace;
+      font-family: "Courier Prime", monospace;
+
       min-height: 100vh;
+
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+
       padding: 20px;
-      background-image: radial-gradient(rgba(0,0,0,0.06) 1px, transparent 0);
+
+      background-image:
+        radial-gradient(
+          rgba(0, 0, 0, 0.06) 1px,
+          transparent 0
+        );
+
       background-size: 16px 16px;
     }
 
     .container {
       width: 100%;
       max-width: 580px;
+
       background: var(--card-bg);
+
       border: 3px solid var(--paper-border);
-      box-shadow: 8px 8px 0px rgba(0,0,0,0.85);
+
+      box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.85);
+
       border-radius: 8px;
+
       padding: 24px;
+
       position: relative;
     }
 
-    /* Barbershop Pole Stripe Accent */
+    /* --------------------------------
+       BARBERSHOP STRIPE
+    -------------------------------- */
+
     .stripe-header {
       height: 10px;
-      background: repeating-linear-gradient(
-        -45deg,
-        var(--accent-red),
-        var(--accent-red) 12px,
-        #f5f1e3 12px,
-        #f5f1e3 24px,
-        #244b7a 24px,
-        #244b7a 36px
-      );
+
+      background:
+        repeating-linear-gradient(
+          -45deg,
+          var(--accent-red),
+          var(--accent-red) 12px,
+          #f5f1e3 12px,
+          #f5f1e3 24px,
+          var(--blue) 24px,
+          var(--blue) 36px
+        );
+
       margin-bottom: 18px;
+
       border: 1.5px solid var(--paper-border);
+
       border-radius: 3px;
     }
+
+    /* --------------------------------
+       HEADER
+    -------------------------------- */
 
     .header-block {
       text-align: center;
@@ -73,95 +106,150 @@
     }
 
     .hindi-title {
-      font-family: 'Yatra One', cursive;
+      font-family: "Yatra One", cursive;
+
       font-size: 2.3rem;
+
       color: var(--accent-red);
+
       line-height: 1.1;
+
       letter-spacing: 1px;
     }
 
     .eng-title {
       font-size: 0.9rem;
+
       font-weight: 700;
+
       text-transform: uppercase;
+
       letter-spacing: 3px;
+
       color: var(--text-main);
+
       margin-top: 4px;
     }
 
     .status-badge {
       display: inline-block;
-      margin-top: 6px;
-      font-size: 0.75rem;
+
+      margin-top: 8px;
+
+      font-size: 0.72rem;
+
       font-weight: 700;
-      padding: 2px 8px;
+
+      padding: 3px 9px;
+
       background: #e0d8c0;
+
       border: 1px solid var(--paper-border);
+
       border-radius: 3px;
     }
 
-    /* Cassette Tape Box */
+    /* --------------------------------
+       CASSETTE
+    -------------------------------- */
+
     .cassette {
       background: var(--tape-dark);
+
       border: 3px solid var(--paper-border);
+
       border-radius: 10px;
+
       padding: 16px;
-      color: #fff;
+
+      color: white;
+
       margin-bottom: 18px;
-      box-shadow: inset 0 0 12px rgba(0,0,0,0.7);
+
+      box-shadow:
+        inset 0 0 12px rgba(0, 0, 0, 0.7);
     }
 
     .cassette-label {
       background: #fbf8eb;
+
       color: #111;
+
       padding: 12px 14px;
+
       border-radius: 4px;
+
       display: flex;
+
       flex-direction: column;
+
       gap: 4px;
+
       border: 1.5px dashed #777;
     }
 
     .track-title {
       font-size: 0.95rem;
+
       font-weight: 700;
+
       white-space: nowrap;
+
       overflow: hidden;
+
       text-overflow: ellipsis;
     }
 
     .track-meta {
       font-size: 0.8rem;
+
       color: var(--text-muted);
     }
 
-    /* Cassette Spool Wheels */
+    /* --------------------------------
+       CASSETTE SPOOLS
+    -------------------------------- */
+
     .spools {
       display: flex;
+
       justify-content: center;
+
       align-items: center;
+
       gap: 55px;
+
       margin: 14px 0 4px;
     }
 
     .spool-window {
       width: 44px;
       height: 44px;
-      border: 3px dashed #fff;
+
+      border: 3px dashed white;
+
       border-radius: 50%;
+
       background: #2a2828;
+
       position: relative;
     }
 
     .spool-window::after {
-      content: '';
+      content: "";
+
       position: absolute;
+
       width: 12px;
       height: 12px;
-      background: #fff;
+
+      background: white;
+
       border-radius: 50%;
+
       top: 50%;
       left: 50%;
+
       transform: translate(-50%, -50%);
     }
 
@@ -170,254 +258,917 @@
     }
 
     @keyframes spin {
-      100% { transform: rotate(360deg); }
+      100% {
+        transform: rotate(360deg);
+      }
     }
 
-    /* Controls */
+    /* --------------------------------
+       CONTROLS
+    -------------------------------- */
+
     .controls {
       display: flex;
+
       gap: 8px;
+
       justify-content: center;
+
       margin-bottom: 16px;
+
       flex-wrap: wrap;
     }
 
     .btn {
       background: var(--card-bg);
+
       border: 2px solid var(--paper-border);
+
       color: var(--text-main);
+
       font-family: inherit;
+
       font-weight: 700;
+
       padding: 8px 14px;
+
       font-size: 0.85rem;
+
       cursor: pointer;
-      box-shadow: 3px 3px 0px var(--paper-border);
+
+      box-shadow: 3px 3px 0 var(--paper-border);
+
       transition: all 0.1s ease;
+
       border-radius: 4px;
+    }
+
+    .btn:hover {
+      background: #ebe4cf;
     }
 
     .btn:active {
       transform: translate(2px, 2px);
-      box-shadow: 1px 1px 0px var(--paper-border);
+
+      box-shadow: 1px 1px 0 var(--paper-border);
     }
 
     .btn-main {
       background: var(--accent-red);
-      color: #fff;
+
+      color: white;
+
       padding: 8px 20px;
     }
 
-    /* Volume */
+    .btn-main:hover {
+      background: #a82f20;
+    }
+
+    /* --------------------------------
+       VOLUME
+    -------------------------------- */
+
     .vol-container {
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
+
       margin-bottom: 16px;
+
       font-size: 0.8rem;
+
       font-weight: 700;
     }
 
     .vol-slider {
       flex: 1;
+
       margin: 0 10px;
+
       accent-color: var(--accent-red);
+
       cursor: pointer;
     }
 
-    /* Player Preview Area */
+    /* --------------------------------
+       YOUTUBE PLAYER
+    -------------------------------- */
+
     .video-preview {
       border: 2px solid var(--paper-border);
+
       border-radius: 6px;
+
       overflow: hidden;
+
       background: #000;
+
       margin-bottom: 14px;
+
       position: relative;
-      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+
+      padding-top: 56.25%;
     }
 
-    .video-preview iframe, .video-preview #youtube-player {
+    #youtube-player {
       position: absolute;
+
       top: 0;
       left: 0;
+
       width: 100%;
       height: 100%;
+
       border: 0;
     }
 
+    /* --------------------------------
+       FOOTER
+    -------------------------------- */
+
     .footer {
       font-size: 0.75rem;
+
       text-align: center;
+
       color: var(--text-muted);
+
       border-top: 1.5px dashed var(--paper-border);
+
       padding-top: 10px;
+
+      line-height: 1.5;
+    }
+
+    /* --------------------------------
+       MOBILE
+    -------------------------------- */
+
+    @media (max-width: 500px) {
+
+      body {
+        padding: 10px;
+      }
+
+      .container {
+        padding: 16px;
+
+        box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.85);
+      }
+
+      .hindi-title {
+        font-size: 1.9rem;
+      }
+
+      .eng-title {
+        font-size: 0.72rem;
+
+        letter-spacing: 2px;
+      }
+
+      .controls {
+        gap: 6px;
+      }
+
+      .btn {
+        padding: 7px 10px;
+
+        font-size: 0.75rem;
+      }
+
+      .btn-main {
+        padding: 7px 15px;
+      }
+
+      .spools {
+        gap: 40px;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <div class="container">
+
     <div class="stripe-header"></div>
 
+    <!-- HEADER -->
+
     <div class="header-block">
-      <h1 class="hindi-title">डीलक्स सैलून</h1>
-      <div class="eng-title">90s Bollywood Classics Radio</div>
-      <div class="status-badge" id="playerStatus">LOADING PUBLIC CASSETTE...</div>
+
+      <h1 class="hindi-title">
+        डीलक्स सैलून
+      </h1>
+
+      <div class="eng-title">
+        90s Bollywood Classics Radio
+      </div>
+
+      <div
+        class="status-badge"
+        id="playerStatus"
+      >
+        CONNECTING TO YOUTUBE...
+      </div>
+
     </div>
+
+    <!-- CASSETTE -->
 
     <div class="cassette">
+
       <div class="cassette-label">
-        <div class="track-title" id="trackName">Tape Loading...</div>
-        <div class="track-meta" id="trackIndex">90s Bollywood Evergreen Playlist</div>
+
+        <div
+          class="track-title"
+          id="trackName"
+        >
+          90s Bollywood Classics
+        </div>
+
+        <div
+          class="track-meta"
+          id="trackIndex"
+        >
+          Public YouTube Playlist
+        </div>
+
       </div>
+
       <div class="spools">
-        <div class="spool-window" id="spoolL"></div>
-        <div class="spool-window" id="spoolR"></div>
+
+        <div
+          class="spool-window"
+          id="spoolL"
+        ></div>
+
+        <div
+          class="spool-window"
+          id="spoolR"
+        ></div>
+
       </div>
+
     </div>
+
+    <!-- CONTROLS -->
 
     <div class="controls">
-      <button class="btn" id="prevBtn">⏮ Prev Track</button>
-      <button class="btn" id="rwBtn">« -15s</button>
-      <button class="btn btn-main" id="playBtn">▶ Play</button>
-      <button class="btn" id="ffBtn">+15s »</button>
-      <button class="btn" id="nextBtn">Next Track ⏭</button>
+
+      <button
+        class="btn"
+        id="prevBtn"
+        type="button"
+      >
+        ⏮ Prev
+      </button>
+
+      <button
+        class="btn"
+        id="rwBtn"
+        type="button"
+      >
+        « -15s
+      </button>
+
+      <button
+        class="btn btn-main"
+        id="playBtn"
+        type="button"
+      >
+        ▶ Play
+      </button>
+
+      <button
+        class="btn"
+        id="ffBtn"
+        type="button"
+      >
+        +15s »
+      </button>
+
+      <button
+        class="btn"
+        id="nextBtn"
+        type="button"
+      >
+        Next ⏭
+      </button>
+
     </div>
+
+    <!-- VOLUME -->
 
     <div class="vol-container">
+
       <span>VOL</span>
-      <input type="range" class="vol-slider" id="volSlider" min="0" max="100" value="85">
-      <span id="volLabel">85%</span>
+
+      <input
+        type="range"
+        class="vol-slider"
+        id="volSlider"
+        min="0"
+        max="100"
+        value="85"
+        aria-label="Volume"
+      >
+
+      <span id="volLabel">
+        85%
+      </span>
+
     </div>
 
+    <!-- YOUTUBE -->
+
     <div class="video-preview">
-      <iframe 
-        id="youtube-player"
-        src="https://www.youtube-nocookie.com/embed?listType=playlist&list=PL9bw4S5ePsEG_i_b86bB5gT3qT0Y4fWw4&enablejsapi=1&playsinline=1&rel=0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-      </iframe>
+
+      <div id="youtube-player"></div>
+
     </div>
+
+    <!-- FOOTER -->
 
     <div class="footer">
       Pure 90s Nostalgia • Handcrafted Barbershop Experience
     </div>
+
   </div>
 
+
+  <!--
+    ==========================================
+    YOUTUBE IFRAME PLAYER API
+    ==========================================
+  -->
+
   <script>
-    let player;
+
+    /*
+      IMPORTANT:
+
+      Replace this playlist ID with the ID of
+      the public YouTube playlist you want.
+
+      Example:
+
+      https://www.youtube.com/playlist?list=PLXXXXXXXX
+
+      Playlist ID:
+
+      PLXXXXXXXX
+    */
+
+    const PLAYLIST_ID =
+      "PL9bw4S5ePsEG_i_b86bB5gT3qT0Y4fWw4";
+
+
+    let player = null;
+
     let isReady = false;
 
-    const playBtn = document.getElementById("playBtn");
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
-    const rwBtn = document.getElementById("rwBtn");
-    const ffBtn = document.getElementById("ffBtn");
-    const spoolL = document.getElementById("spoolL");
-    const spoolR = document.getElementById("spoolR");
-    const playerStatus = document.getElementById("playerStatus");
-    const trackName = document.getElementById("trackName");
-    const trackIndex = document.getElementById("trackIndex");
-    const volSlider = document.getElementById("volSlider");
-    const volLabel = document.getElementById("volLabel");
 
-    // Load YouTube API
-    const tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    const firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    /*
+      DOM ELEMENTS
+    */
 
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('youtube-player', {
-        events: {
-          'onReady': onPlayerReady,
-          'onStateChange': onPlayerStateChange,
-          'onError': onPlayerError
-        }
-      });
-    }
+    const playBtn =
+      document.getElementById("playBtn");
+
+    const prevBtn =
+      document.getElementById("prevBtn");
+
+    const nextBtn =
+      document.getElementById("nextBtn");
+
+    const rwBtn =
+      document.getElementById("rwBtn");
+
+    const ffBtn =
+      document.getElementById("ffBtn");
+
+    const spoolL =
+      document.getElementById("spoolL");
+
+    const spoolR =
+      document.getElementById("spoolR");
+
+    const playerStatus =
+      document.getElementById("playerStatus");
+
+    const trackName =
+      document.getElementById("trackName");
+
+    const trackIndex =
+      document.getElementById("trackIndex");
+
+    const volSlider =
+      document.getElementById("volSlider");
+
+    const volLabel =
+      document.getElementById("volLabel");
+
+
+    /*
+      LOAD YOUTUBE IFRAME API
+    */
+
+    const youtubeScript =
+      document.createElement("script");
+
+    youtubeScript.src =
+      "https://www.youtube.com/iframe_api";
+
+    youtubeScript.async = true;
+
+    document.head.appendChild(youtubeScript);
+
+
+    /*
+      YOUTUBE API CALLBACK
+
+      This function is called automatically
+      by the YouTube API.
+    */
+
+    window.onYouTubeIframeAPIReady =
+      function () {
+
+        player =
+          new YT.Player(
+            "youtube-player",
+            {
+
+              width: "100%",
+
+              height: "100%",
+
+              playerVars: {
+
+                /*
+                  Load the playlist directly.
+                */
+
+                listType: "playlist",
+
+                list: PLAYLIST_ID,
+
+                /*
+                  Don't autoplay immediately.
+                  This avoids browser autoplay restrictions.
+                */
+
+                autoplay: 0,
+
+                /*
+                  Show YouTube controls.
+                */
+
+                controls: 1,
+
+                /*
+                  Don't show unrelated videos
+                  where YouTube permits this.
+                */
+
+                rel: 0,
+
+                /*
+                  Mobile inline playback.
+                */
+
+                playsinline: 1,
+
+                /*
+                  Use privacy-enhanced mode.
+                */
+
+                origin:
+                  window.location.origin
+
+              },
+
+              events: {
+
+                onReady:
+                  onPlayerReady,
+
+                onStateChange:
+                  onPlayerStateChange,
+
+                onError:
+                  onPlayerError
+
+              }
+
+            }
+          );
+
+      };
+
+
+    /*
+      PLAYER READY
+    */
 
     function onPlayerReady(event) {
+
       isReady = true;
+
       player.setVolume(85);
-      playerStatus.innerText = "READY TO PLAY • LIVE";
+
+      playerStatus.innerText =
+        "READY • 90s CLASSICS";
+
       updateTrackInfo();
+
     }
+
+
+    /*
+      UPDATE SONG INFORMATION
+    */
 
     function updateTrackInfo() {
-      if (!isReady || !player.getVideoData) return;
-      const data = player.getVideoData();
-      if (data && data.title) {
-        trackName.innerText = data.title;
-        const curIndex = player.getPlaylistIndex();
-        trackIndex.innerText = `Track #${(curIndex !== undefined && curIndex >= 0 ? curIndex + 1 : 1)} • 90s Classics`;
+
+      if (
+        !isReady ||
+        !player
+      ) {
+        return;
       }
+
+
+      /*
+        Get current video information.
+      */
+
+      const data =
+        player.getVideoData();
+
+
+      if (
+        data &&
+        data.title
+      ) {
+
+        trackName.innerText =
+          data.title;
+
+      }
+
+
+      /*
+        Get playlist position.
+      */
+
+      const index =
+        player.getPlaylistIndex();
+
+
+      if (
+        typeof index === "number" &&
+        index >= 0
+      ) {
+
+        trackIndex.innerText =
+          "Track #" +
+          (index + 1) +
+          " • 90s Bollywood Classics";
+
+      } else {
+
+        trackIndex.innerText =
+          "90s Bollywood Classics";
+
+      }
+
     }
+
+
+    /*
+      PLAYER STATE CHANGES
+    */
 
     function onPlayerStateChange(event) {
+
       updateTrackInfo();
 
-      if (event.data === YT.PlayerState.PLAYING) {
-        playBtn.innerText = "❚❚ Pause";
-        spoolL.classList.add("spinning");
-        spoolR.classList.add("spinning");
-        playerStatus.innerText = "NOW PLAYING ♫";
-      } else if (event.data === YT.PlayerState.PAUSED) {
-        playBtn.innerText = "▶ Play";
-        spoolL.classList.remove("spinning");
-        spoolR.classList.remove("spinning");
-        playerStatus.innerText = "PAUSED";
-      } else if (event.data === YT.PlayerState.BUFFERING) {
-        playerStatus.innerText = "TUNING IN...";
-      } else if (event.data === YT.PlayerState.ENDED) {
-        playerStatus.innerText = "NEXT TRACK...";
+
+      if (
+        event.data ===
+        YT.PlayerState.PLAYING
+      ) {
+
+        playBtn.innerText =
+          "❚❚ Pause";
+
+        spoolL.classList.add(
+          "spinning"
+        );
+
+        spoolR.classList.add(
+          "spinning"
+        );
+
+        playerStatus.innerText =
+          "NOW PLAYING ♫";
+
       }
+
+
+      else if (
+        event.data ===
+        YT.PlayerState.PAUSED
+      ) {
+
+        playBtn.innerText =
+          "▶ Play";
+
+        spoolL.classList.remove(
+          "spinning"
+        );
+
+        spoolR.classList.remove(
+          "spinning"
+        );
+
+        playerStatus.innerText =
+          "PAUSED";
+
+      }
+
+
+      else if (
+        event.data ===
+        YT.PlayerState.BUFFERING
+      ) {
+
+        playerStatus.innerText =
+          "TUNING IN...";
+
+      }
+
+
+      else if (
+        event.data ===
+        YT.PlayerState.ENDED
+      ) {
+
+        playerStatus.innerText =
+          "NEXT TRACK...";
+
+        /*
+          The playlist should normally advance
+          automatically.
+        */
+
+        setTimeout(
+          updateTrackInfo,
+          500
+        );
+
+      }
+
     }
 
-    function onPlayerError(e) {
-      playerStatus.innerText = "SKIPPING TO NEXT TRACK...";
-      if (player.nextVideo) player.nextVideo();
+
+    /*
+      YOUTUBE ERROR HANDLER
+    */
+
+    function onPlayerError(event) {
+
+      console.log(
+        "YouTube player error:",
+        event.data
+      );
+
+      playerStatus.innerText =
+        "TRACK UNAVAILABLE • SKIPPING...";
+
+
+      /*
+        Error codes commonly indicate that a
+        video cannot be played.
+
+        Move to the next playlist item.
+      */
+
+      if (
+        player &&
+        typeof player.nextVideo === "function"
+      ) {
+
+        setTimeout(
+          function () {
+
+            player.nextVideo();
+
+          },
+          1200
+        );
+
+      }
+
     }
 
-    // Playback Controls
-    playBtn.addEventListener('click', () => {
-      if (!isReady) return;
-      const state = player.getPlayerState();
-      if (state === YT.PlayerState.PLAYING) {
-        player.pauseVideo();
-      } else {
-        player.playVideo();
+
+    /*
+      PLAY / PAUSE
+    */
+
+    playBtn.addEventListener(
+      "click",
+      function () {
+
+        if (!isReady) {
+
+          playerStatus.innerText =
+            "YOUTUBE IS STILL LOADING...";
+
+          return;
+
+        }
+
+
+        const state =
+          player.getPlayerState();
+
+
+        if (
+          state ===
+          YT.PlayerState.PLAYING
+        ) {
+
+          player.pauseVideo();
+
+        } else {
+
+          player.playVideo();
+
+        }
+
       }
-    });
+    );
 
-    nextBtn.addEventListener('click', () => {
-      if (!isReady) return;
-      player.nextVideo();
-    });
 
-    prevBtn.addEventListener('click', () => {
-      if (!isReady) return;
-      player.previousVideo();
-    });
+    /*
+      NEXT TRACK
+    */
 
-    rwBtn.addEventListener('click', () => {
-      if (!isReady) return;
-      const cur = player.getCurrentTime();
-      player.seekTo(Math.max(cur - 15, 0), true);
-    });
+    nextBtn.addEventListener(
+      "click",
+      function () {
 
-    ffBtn.addEventListener('click', () => {
-      if (!isReady) return;
-      const cur = player.getCurrentTime();
-      player.seekTo(cur + 15, true);
-    });
+        if (!isReady) {
+          return;
+        }
 
-    volSlider.addEventListener('input', (e) => {
-      const val = e.target.value;
-      volLabel.innerText = `${val}%`;
-      if (isReady) {
-        player.setVolume(val);
+        player.nextVideo();
+
       }
-    });
+    );
+
+
+    /*
+      PREVIOUS TRACK
+    */
+
+    prevBtn.addEventListener(
+      "click",
+      function () {
+
+        if (!isReady) {
+          return;
+        }
+
+        player.previousVideo();
+
+      }
+    );
+
+
+    /*
+      REWIND 15 SECONDS
+    */
+
+    rwBtn.addEventListener(
+      "click",
+      function () {
+
+        if (!isReady) {
+          return;
+        }
+
+
+        const currentTime =
+          player.getCurrentTime();
+
+
+        player.seekTo(
+          Math.max(
+            currentTime - 15,
+            0
+          ),
+          true
+        );
+
+      }
+    );
+
+
+    /*
+      FORWARD 15 SECONDS
+    */
+
+    ffBtn.addEventListener(
+      "click",
+      function () {
+
+        if (!isReady) {
+          return;
+        }
+
+
+        const currentTime =
+          player.getCurrentTime();
+
+
+        const duration =
+          player.getDuration();
+
+
+        player.seekTo(
+          Math.min(
+            currentTime + 15,
+            duration
+          ),
+          true
+        );
+
+      }
+    );
+
+
+    /*
+      VOLUME
+    */
+
+    volSlider.addEventListener(
+      "input",
+      function (event) {
+
+        const volume =
+          Number(event.target.value);
+
+
+        volLabel.innerText =
+          volume + "%";
+
+
+        if (
+          isReady &&
+          player
+        ) {
+
+          player.setVolume(
+            volume
+          );
+
+        }
+
+      }
+    );
+
+
+    /*
+      UPDATE TRACK INFORMATION
+      PERIODICALLY.
+
+      This is useful because the title can
+      change when the playlist automatically
+      advances.
+    */
+
+    setInterval(
+      function () {
+
+        if (isReady) {
+
+          updateTrackInfo();
+
+        }
+
+      },
+      1500
+    );
+
   </script>
+
 </body>
 </html>
